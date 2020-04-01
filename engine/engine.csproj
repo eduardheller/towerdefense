@@ -1,0 +1,369 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{957D9C3C-F774-49C7-BFC0-725E52CD20C3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Engine</RootNamespace>
+    <AssemblyName>Engine</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="OpenTK, Version=2.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <HintPath>$(SolutionDir)\packages\OpenTK.2.0.0\lib\net20\OpenTK.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="cgimin\camera\Camera.cs" />
+    <Compile Include="cgimin\collision\BaseCollisionContainer.cs" />
+    <Compile Include="cgimin\collision\Collision.cs" />
+    <Compile Include="cgimin\collision\CollisionGrid.cs" />
+    <Compile Include="cgimin\collision\MouseRay.cs" />
+    <Compile Include="cgimin\collision\ObjLoaderCollision.cs" />
+    <Compile Include="cgimin\colorpicker\ColorPicking.cs" />
+    <Compile Include="cgimin\framebuffer\BasicFrameBuffer.cs" />
+    <Compile Include="cgimin\helpers\Lerps.cs" />
+    <Compile Include="cgimin\material\animmeshmaterial\AnimMeshMaterial.cs" />
+    <Compile Include="cgimin\material\animmeshmaterial\AnimMeshMaterialDead.cs" />
+    <None Include="cgimin\material\animmeshmaterial\AnimMeshMaterialDead_VS.glsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Compile Include="cgimin\material\distancefieldtext\DistanceFieldMaterial.cs" />
+    <Compile Include="cgimin\material\normalmappingshadowinstanced\NormalMappingShadowInstancedMaterial.cs" />
+    <Compile Include="cgimin\material\ship\ShipMaterial.cs" />
+    <Compile Include="cgimin\material\treematerial\TreeMaterial.cs" />
+    <Compile Include="cgimin\object3d\PlaneObject3D.cs" />
+    <Compile Include="cgimin\object3d\QuadObject3D.cs" />
+    <Compile Include="cgimin\helpers\TimeMeasure.cs" />
+    <Compile Include="cgimin\material\alphacycle\AlphaCycleMaterial.cs" />
+    <Compile Include="cgimin\material\ambientdiffusespecularshadow\AmbientDiffuseSpecularShadowMaterial.cs" />
+    <Compile Include="cgimin\material\castshadow\CastShadowMaterial.cs" />
+    <Compile Include="cgimin\material\cubereflectionfogcascaded\CubeReflectionFogCascaded.cs" />
+    <Compile Include="cgimin\material\cubereflectionfog\CubeReflectionFog.cs" />
+    <Compile Include="cgimin\material\gui\GUIMaterial.cs" />
+    <Compile Include="cgimin\material\normalmappingfogshadowcascaded\NormalMappingMaterialFogShadowCascaded.cs" />
+    <Compile Include="cgimin\material\normalmappingfogshadow\NormalMappingMaterialFogShadow.cs" />
+    <Compile Include="cgimin\material\normalmappingfog\NormalMappingMaterialFog.cs" />
+    <Compile Include="cgimin\material\normalmappingshadow\NormalMappingShadowMaterial.cs" />
+    <Compile Include="cgimin\material\particleatlas\ParticleMaterial.cs" />
+    <Compile Include="cgimin\material\textureglow\TextureGlowMaterial.cs" />
+    <Compile Include="cgimin\material\wobble3\Wobble3Material.cs" />
+    <Compile Include="cgimin\particles\Particles.cs" />
+    <None Include="cgimin\material\animmeshmaterial\AnimMeshMaterial_FS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\animmeshmaterial\AnimMeshMaterial_VS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\distancefieldtext\DistanceField_FS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\distancefieldtext\DistanceField_VS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\normalmappingshadowinstanced\NormalMappingShadowInstanced_FS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\normalmappingshadowinstanced\NormalMappingShadowInstanced_VS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\ship\Ship_FS.glsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\ship\Ship_VS.glsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\treematerial\Tree_FS.glsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\treematerial\Tree_VS.glsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\postprocessing\bloom\Bloom_Bright_FS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\postprocessing\bloom\Bloom_Bright_VS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Compile Include="cgimin\postprocessing\bloom\Bloom.cs" />
+    <Compile Include="cgimin\postprocessing\CombineEffectsMaterial.cs" />
+    <None Include="cgimin\postprocessing\Combine_Effects_FS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Compile Include="cgimin\postprocessing\SimpleFullscreenMaterial.cs" />
+    <Compile Include="cgimin\postprocessing\Postprocessing.cs" />
+    <Compile Include="cgimin\postprocessing\BlurFullscreenMaterial.cs" />
+    <Compile Include="cgimin\shadowmappingcascaded\ShadowMappingCascaded.cs" />
+    <Compile Include="cgimin\shadowmapping\ShadowMapping.cs" />
+    <Compile Include="cgimin\skybox\SkyBox.cs" />
+    <Compile Include="cgimin\text\DrawableString.cs" />
+    <Compile Include="cgimin\helpers\GeometryHelpers.cs" />
+    <Compile Include="cgimin\helpers\ShaderCompiler.cs" />
+    <Compile Include="cgimin\light\Light.cs" />
+    <Compile Include="cgimin\material\alphatexture\AlphaTextureMaterial.cs" />
+    <Compile Include="cgimin\material\ambientdiffuse\AmbientDiffuseMaterial.cs" />
+    <Compile Include="cgimin\material\ambientdiffusespecular\AmbientDiffuseSpecularMaterial.cs" />
+    <Compile Include="cgimin\material\BaseMaterial.cs" />
+    <Compile Include="cgimin\material\billboard\BillboardMaterial.cs" />
+    <Compile Include="cgimin\material\cubereflectionnormal\CubeReflectionNormalMaterial.cs" />
+    <Compile Include="cgimin\material\normalmappingcubespecular\NormalMappingCubeSpecularMaterial.cs" />
+    <Compile Include="cgimin\material\normalmapping\NormalMappingMaterial.cs" />
+    <Compile Include="cgimin\material\cubereflection\CubeReflectionMaterial.cs" />
+    <Compile Include="cgimin\material\simplereflection\SimpleReflectionMaterial.cs" />
+    <Compile Include="cgimin\material\simpletexture\SimpleTextureMaterial.cs" />
+    <Compile Include="cgimin\material\wobble1\Wobble1Material.cs" />
+    <Compile Include="cgimin\material\wobble2\Wobble2Material.cs" />
+    <Compile Include="cgimin\object3d\BaseObject3D.cs" />
+    <Compile Include="cgimin\object3d\BillboardObject3D.cs" />
+    <Compile Include="cgimin\object3d\CubeObject3D.cs" />
+    <Compile Include="cgimin\object3d\ObjLoaderObject3D.cs" />
+    <Compile Include="cgimin\octree\Octree.cs" />
+    <Compile Include="cgimin\octree\OctreeEntity.cs" />
+    <Compile Include="cgimin\terrain\Terrain.cs" />
+    <Compile Include="cgimin\texture\TextureManager.cs" />
+    <Compile Include="cgimin\text\TextMaterial.cs" />
+    <Compile Include="cgimin\water\Water.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="cgimin\sound\Sound.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cgimin\colorpicker\ColorPicking_FS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\colorpicker\ColorPicking_VS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\alphacycle\AlphaCycle_FS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\alphacycle\AlphaCycle_VS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\alphatexture\AlphaTexture_FS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\alphatexture\AlphaTexture_VS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\ambientdiffusespecularshadow\AmbientDiffuseSpecularShadow_FS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\ambientdiffusespecularshadow\AmbientDiffuseSpecularShadow_VS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\ambientdiffuse\AmbientDiffuse_FS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\ambientdiffuse\AmbientDiffuse_VS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\ambientdiffusespecular\AmbientDiffuseSpecular_FS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\ambientdiffusespecular\AmbientDiffuseSpecular_VS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\billboard\Billboard_FS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\billboard\Billboard_VS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\castshadow\CastShadow_FS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\castshadow\CastShadow_VS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include="cgimin\material\cubereflectionfogcascaded\CubeReflectionFogCascaded_FS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="cgimin\material\cubereflectionfogcascaded\CubeReflectionFogCascaded_VS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="cgimin\material\cubereflectionfog\CubeReflectionFog_FS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="cgimin\material\cubereflectionfog\CubeReflectionFog_VS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="cgimin\material\cubereflectionnormal\CubeReflectionNormal_FS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\cubereflectionnormal\CubeReflectionNormal_VS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\gui\GUI_FS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\gui\GUI_VS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\normalmappingcubespecular\NormalMappingCubeSpecular_FS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\normalmappingcubespecular\NormalMappingCubeSpecular_VS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include="cgimin\material\normalmappingfog\NormalMappingFog_FS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="cgimin\material\normalmappingfog\NormalMappingFog_VS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="cgimin\material\normalmappingfogshadow\NormalMappingFogShadow_FS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="cgimin\material\normalmappingfogshadow\NormalMappingFogShadow_VS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="cgimin\material\normalmappingfogshadowcascaded\NormalMappingFogShadowCascaded_FS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="cgimin\material\normalmappingfogshadowcascaded\NormalMappingFogShadowCascaded_VS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="cgimin\material\normalmappingshadow\NormalMappingShadow_FS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\normalmappingshadow\NormalMappingShadow_VS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\normalmapping\NormalMapping_FS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\normalmapping\NormalMapping_VS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\cubereflection\CubeReflection_FS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\cubereflection\CubeReflection_VS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\particleatlas\ParticleAtlas_FS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\particleatlas\ParticleAtlas_VS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\simplereflection\SimpleReflection_FS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\simplereflection\SimpleReflection_VS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\simpletexture\Simple_FS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\simpletexture\Simple_VS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\textureglow\TextureGlow_FS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\textureglow\TextureGlow_VS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\wobble1\Wobble1_FS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\wobble1\Wobble1_VS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\wobble2\Wobble2_FS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\wobble2\Wobble2_VS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\wobble3\Wobble3_FS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\material\wobble3\Wobble3_VS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\particles\Particles_FS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\particles\Particles_VS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\postprocessing\SimpleFullscreen_FS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\postprocessing\BlurFullscreen_FS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\postprocessing\SimpleFullscreen_VS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\postprocessing\BlurFullscreen_VS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\terrain\Terrain_FS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\terrain\Terrain_VS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include="cgimin\text\dina.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="cgimin\text\monospace.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="cgimin\water\Water_FS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cgimin\water\Water_VS.glsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="OpenTK.dll.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="cgimin\gui\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

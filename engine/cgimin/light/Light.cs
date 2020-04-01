@@ -1,0 +1,33 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using OpenTK;
+
+namespace Engine.cgimin.light
+{
+    public class Light
+    {
+
+        public static Vector3 lightDirection;
+        public static Vector4 lightAmbient;
+        public static Vector4 lightDiffuse;
+        public static Vector4 lightSpecular;
+
+        public static Vector3 lighPosition;
+        public static float lighAttenuation;
+
+
+        public static void SetDirectionalLight(Vector3 direction, Vector4 ambient, Vector4 diffuse, Vector4 specular)
+        {
+            lightDirection = Vector3.Normalize(direction);
+            lightAmbient = ambient;
+            lightDiffuse = diffuse;
+            lightSpecular = specular;
+        }
+
+
+
+    }
+}
